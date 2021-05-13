@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Запити</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">Вісім запитів</h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>5 простих запитів</li>
+                    <li>3 запити з множинним порівнянням</li>
+                </ul>
+                <form asp-area="" asp-controller="Queries" asp-action="Index">
+                    <input type="submit" class="btn btn-lg btn-block btn-outline-primary" value="Перейти" />
+                </form>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Діаграма</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">Діаграма бази даних</h1>
+                <form asp-area="" asp-controller="Queries" asp-action="Index">
+                    <input type="submit" class="btn btn-lg btn-block btn-outline-primary" value="Завантажити" />
+                </form>
+            </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Звіт</h4>
+            </div>
+            <div class="card-body">
+                <h1 class="card-title pricing-card-title">Звіт і посібник користувача</h1>
+                <form asp-area="" asp-controller="Queries" asp-action="Index">
+                    <input type="submit" class="btn btn-lg btn-block btn-outline-primary" value="Завантажити" />
+                </form>
+            </div>
+        </div>
+    </div>
+

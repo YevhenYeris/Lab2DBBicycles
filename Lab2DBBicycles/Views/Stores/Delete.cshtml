@@ -1,0 +1,39 @@
+﻿@model Lab2DBBicycles.Store
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Видалити</h1>
+
+<h3>Ви впевнені, що хочете видалити даний елемент</h3>
+<div>
+    @if (ViewBag.sales != null && ViewBag.sales != 0)
+    {
+        <p>ЦЕ ПРИЗВЕДЕ ДО ВИДАЛЕННЯ <span style="color:red">@ViewBag.sales</span> ПРОДАЖІВ!!!</p>
+    }
+</div>
+<div>
+    <h4>Магазин</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-action="Index">Назад до списку</a>
+    </form>
+</div>

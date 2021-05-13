@@ -1,0 +1,195 @@
+﻿@model Query
+
+@{
+    ViewData["Title"] = "Результат";
+}
+
+<table class="table">
+    @if (Model.Id == 1)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BicycleName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BicycleNames != null)
+                @foreach (var item in Model.BicycleNames)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    }
+    @if (Model.Id == 2)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoreNames)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.StoreNames != null)
+                @foreach (var item in Model.StoreNames)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    }
+    @if (Model.Id == 3)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoreCount)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.StoreCount)
+                </td>
+            </tr>
+        </tbody>
+    }
+    @if (Model.Id == 4)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrandName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvgPrice)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BrandNames != null && Model.Prices != null)
+                @for (int i = 0; i < Model.BrandNames.Count; ++i)
+                {
+                    <tr>
+                        <td>
+                            @Model.BrandNames.ElementAt(i)
+                        </td>
+                        <td>
+                            @Model.Prices.ElementAt(i)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+        <tr>
+            <th>
+                @Html.DisplayFor(model => model.StoreName1)
+            </th>
+            <th>
+                @Html.DisplayFor(model => model.AvgPrice)
+            </th>
+            <th></th>
+        </tr>
+    }
+    @if (Model.Id == 5)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BicycleName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BicycleNames != null)
+                @foreach (var item in Model.BicycleNames)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    }
+    @if (Model.Id == 6)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoreNames)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.StoreNames != null)
+                @foreach (var item in Model.StoreNames)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    }
+    @if (Model.Id == 7)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrandName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BrandNames != null)
+                @for (int i = 0; i < Model.BrandNames.Count; ++i)
+                {
+                    <tr>
+                        <td>
+                            @Model.BrandNames.ElementAt(i)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    }
+    @if (Model.Id == 8)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BicycleName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.BicycleNames != null)
+                @foreach (var item in Model.BicycleNames)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item)
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    }
+</table>

@@ -1,0 +1,163 @@
+﻿@model Query
+
+@{
+    ViewData["Title"] = "Запити до бази даних";
+}
+
+<h1>Запити</h1>
+<hr />
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Прості</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <h2>Запит 1</h2>
+            <p>Знайти назви велосипедів, що продаються в магазині А але не продаються в магазині В.</p>
+            <form asp-action="SimpleOne">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="StoreName1" class="control-label">A</label>
+                    <select asp-for="StoreName1" class="form-control" asp-items="ViewBag.Store"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoreName2" class="control-label">B</label>
+                    <select asp-for="StoreName2" class="form-control" asp-items="ViewBag.Store"></select>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="feature col">
+            <h2>Запит 2</h2>
+            <p>Знайти назви магазинів, що продають хоча б один велосипед обраної країни.</p>
+            <form asp-action="SimpleTwo">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CountryName" class="control-label">Країна</label>
+                    <select asp-for="CountryName" class="form-control" asp-items="ViewBag.Country"></select>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="feature col">
+            <h2>Запит 3</h2>
+            <p>Скільки магазинів продають велосипеди більш ніж N брендів.</p>
+            <form asp-action="SimpleThree">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="StoreCount" class="control-label">N</label>
+                    <input asp-for="StoreCount" class="form-control" />
+                    <span asp-validation-for="StoreCount" class="text-danger"></span>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <h2>Запит 4</h2>
+            <p>Знайти назви брендів, середня ціна велосипедів яких більша за середню ціну усіх велосипедів магазину А.</p>
+            <form asp-action="SimpleFour">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="StoreName1" class="control-label">А</label>
+                    <select asp-for="StoreName1" class="form-control" asp-items="ViewBag.Store"></select>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="feature col">
+            <h2>Запит 5</h2>
+            <p>Знайти назви велосипедів, що не продаються в магазині А, і належать до брендів з сумарною ціною більше N.</p>
+            <form asp-action="SimpleFive">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">N</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoreName1" class="control-label">A</label>
+                    <select asp-for="StoreName1" class="form-control" asp-items="ViewBag.Store"></select>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <h2 class="pb-2 border-bottom">Із множинним порівнянням</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <h2>Запит 1</h2>
+            <p>Знайти назви магазинів, що продають всі велосипеди ціною від N1 до N2.</p>
+            <form asp-action="SetOne">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">N1</label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price1" class="control-label">N2</label>
+                    <input asp-for="Price1" class="form-control" />
+                    <span asp-validation-for="Price1" class="text-danger"></span>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="feature col">
+            <h2>Запит 2</h2>
+            <p>Знайти назви брендів, всі велосипеди яких продаються в магазині А й мають ціну, більшу за середню в магазині В.</p>
+            <form asp-action="SetTwo">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="StoreName1" class="control-label">A</label>
+                    <select asp-for="StoreName1" class="form-control" asp-items="ViewBag.Store"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StoreName2" class="control-label">B</label>
+                    <select asp-for="StoreName2" class="form-control" asp-items="ViewBag.Store"></select>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+        <div class="feature col">
+            <h2>Запит 3</h2>
+            <p>Знайти назви велосипедів N1 року випуску, що продаються в усіх магазинах, які продають більше за N2 велосипедів.</p>
+            <form asp-action="SetThree">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Count1" class="control-label">N1</label>
+                    <select asp-for="Count1" class="form-control" asp-items="ViewBag.Year"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Count2" class="control-label">N2</label>
+                    <input asp-for="Count2" class="form-control" />
+                    <span asp-validation-for="Count2" class="text-danger"></span>
+                </div>
+                <p>&nbsp;</p>
+                <div class="form-group">
+                    <input type="submit" value="Створити" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
